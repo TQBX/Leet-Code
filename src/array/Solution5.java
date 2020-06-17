@@ -47,6 +47,7 @@ public class Solution5 {
 
             int nextRow = row+directions[directionIndex][0];
             int nextCol = col+directions[directionIndex][1];
+            //如果走过,或者超出范围,换下一个方向
             if(nextRow<0||nextRow>=rows||nextCol<0||nextCol>=cols||visited[nextRow][nextCol]){
                 directionIndex = (directionIndex+1)%4;
             }

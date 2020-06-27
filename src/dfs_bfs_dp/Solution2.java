@@ -1,4 +1,4 @@
-package dfs_bfs_dp;
+package dfs_bfs_ugly;
 
 import java.util.Arrays;
 
@@ -19,22 +19,22 @@ public class Solution2 {
     public int nthUglyNumber(int n) {
         //初始化
         int a = 0,b = 0,c = 0;
-        int[]dp = new int[n];
+        int[]ugly = new int[n];
         //初始状态定义
-        dp[0] = 1;
+        ugly[0] = 1;
         for(int i = 1;i<n;i++){
-            int n2 = dp[a]*2;
-            int n3 = dp[b]*3;
-            int n5 = dp[c]*5;
-            dp[i] = Math.min(Math.min(n2,n3),n5);
+            int n2 = ugly[a]*2;
+            int n3 = ugly[b]*3;
+            int n5 = ugly[c]*5;
+            ugly[i] = Math.min(Math.min(n2,n3),n5);
             //分别用三个if,过滤重复解的情况
-            if(dp[i] == n2) a++;
-            if(dp[i] == n3)b++;
-            if(dp[i] == n5)c++;
+            if(ugly[i] == n2) a++;
+            if(ugly[i] == n3)b++;
+            if(ugly[i] == n5)c++;
         }
 
-        System.out.println(Arrays.toString(dp));
-        return dp[n-1];
+        System.out.println(Arrays.toString(ugly));
+        return ugly[n-1];
     }
 
     public static void main(String[] args) {

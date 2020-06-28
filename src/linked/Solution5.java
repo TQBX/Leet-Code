@@ -21,6 +21,4 @@ public class Solution5 {
         }
         return head;
     }
-
-
 }

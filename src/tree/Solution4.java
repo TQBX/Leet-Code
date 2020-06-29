@@ -58,11 +58,16 @@ public class Solution4 {
             return res;
         }
         Queue<TreeNode> queue = new LinkedList<>();
+        //初始化,加入非空的root节点
         queue.add(root);
+        //如果没有协议层就跳出循环
         while (!queue.isEmpty()) {
+            //存放该层节点的值
             List<Integer> oneLevel = new ArrayList();
+            //记录下一层的节点数
             int count = queue.size();
             for (int i = 0; i < count; i++) {
+                //取出节点queue中节点,分别加入该节点的非空左右子节点
                 TreeNode node = queue.poll();
                 oneLevel.add(node.val);
                 if (node.left != null) {
@@ -72,6 +77,7 @@ public class Solution4 {
                     queue.add(node.right);
                 }
             }
+            //头插
             res.addFirst(oneLevel);
         }
         return res;

@@ -79,4 +79,15 @@ public class Solution3 {
         }
         return res;
     }
+
+    /**
+     * 判断是否为平衡二叉树
+     * @param root
+     * @return
+     */
+    public boolean isBalanced(TreeNode root) {
+        if(root == null) return true;
+        return Math.abs(maxDepth(root.left) - maxDepth(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+
+    }
 }
